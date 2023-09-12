@@ -29,15 +29,15 @@ namespace QuizAPI.Services.Implementations
                 var tests = await _context.Questions
                     .Where(x => x.TestId == testId)
                     .Select(x => new QuestionDTO
-                {
-                    QuestionId = x.QuestionId,
-                    QuestionDescription = x.Title,
-                    Answers = x.Answers.Select(y => new AnswerDTO
                     {
-                        AnswerId = y.AnswerId,
-                        AnswerDescription = y.Description
-                    }).ToList()
-                }).ToListAsync();
+                        QuestionId = x.QuestionId,
+                        QuestionDescription = x.Title,
+                        Answers = x.Answers.Select(y => new AnswerDTO
+                        {
+                            AnswerId = y.AnswerId,
+                            AnswerDescription = y.Description
+                        }).ToList()
+                    }).ToListAsync();
 
                 result.ResponseData = new List<QuestionDTO>();
                 result.ResponseData = tests.OrderBy(x => x.QuestionId).ToList();

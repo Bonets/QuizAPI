@@ -9,5 +9,6 @@ namespace QuizAPI.Services
     {
         public ITestService CreateTestService(QuizContext context);
         public IQuestionService CreateQuestionService(QuizContext context);
+        public IAnswerService CreateAnswerService(QuizContext context);
     }
 }
