@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizAPI;
 
@@ -10,9 +11,11 @@ using QuizAPI;
 namespace QuizAPI.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    partial class QuizContextModelSnapshot : ModelSnapshot
+    [Migration("20230912064454_KeyRemoval-InitialSeeding")]
+    partial class KeyRemovalInitialSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,21 +127,21 @@ namespace QuizAPI.Migrations
                             AnswerId = 13,
                             Description = "Monte Carlo",
                             IsRightAnswer = true,
-                            QuestionId = 5
+                            QuestionId = 4
                         },
                         new
                         {
                             AnswerId = 14,
                             Description = "Rome",
                             IsRightAnswer = false,
-                            QuestionId = 5
+                            QuestionId = 4
                         },
                         new
                         {
                             AnswerId = 15,
                             Description = "Budapest",
                             IsRightAnswer = false,
-                            QuestionId = 5
+                            QuestionId = 4
                         },
                         new
                         {
