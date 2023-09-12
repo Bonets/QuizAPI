@@ -8,5 +8,6 @@ namespace QuizAPI.Services
     public interface IServiceFactory
     {
         public ITestService CreateTestService(QuizContext context);
+        public IQuestionService CreateQuestionService(QuizContext context);
     }
 }

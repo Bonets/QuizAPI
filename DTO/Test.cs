@@ -6,4 +6,9 @@
         public string Title { get; set; }
         
     }
+
+    public class TestQuestionsDTO : TestDTO
+    {
+        public List<int> QuestionId { get; set; }
+    }
 }

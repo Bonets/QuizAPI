@@ -10,6 +10,12 @@ namespace QuizAPI.Services
         {
             _context = context;
         }
+
+        public IQuestionService CreateQuestionService(QuizContext context)
+        {
+            return new QuestionService(_context);
+        }
+
         public ITestService CreateTestService(QuizContext context)
         {
             return new TestService(_context);

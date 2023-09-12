@@ -29,7 +29,7 @@ namespace QuizAPI.Services.Implementations
                 var tests = await _context.Tests.Select(x => new TestDTO
                 {
                     TestId = x.TestId,
-                    Title = x.TestName
+                    Title = x.TestName,
                 }).ToListAsync();
 
                 result.ResponseData = new List<TestDTO>();

@@ -15,7 +15,7 @@ namespace QuizAPI.Controllers
         }
 
         [HttpGet]
-        [Route("/")]
+        [Route("all")]
         public async Task<IActionResult> TryGetTests()
         {
             var result = await _serviceFactory.CreateTestService(_quizContext).TryGetTestList();
