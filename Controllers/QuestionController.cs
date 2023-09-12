@@ -12,10 +12,14 @@ namespace QuizAPI.Controllers
         {
             _configuration = configuration;
         }
-
+        /// <summary>
+        /// Gets question list of the test with the specified id
+        /// </summary>
+        /// <param name="testId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{testId}")]
-        public async Task<IActionResult> TryGetTests(int testId)
+        public async Task<IActionResult> TryGetQuestions(int testId)
         {
             var result = await _serviceFactory.CreateQuestionService(_quizContext).TryGetTestQuestions(testId);
             return await GetResponse(result);

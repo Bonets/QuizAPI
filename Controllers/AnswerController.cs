@@ -13,7 +13,11 @@ namespace QuizAPI.Controllers
         {
             _configuration = configuration;
         }
-
+        /// <summary>
+        /// Saves user answer in database
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("save")]
         public async Task<IActionResult> TryInsertNewUserAnswer(UserAnswerDTO model)

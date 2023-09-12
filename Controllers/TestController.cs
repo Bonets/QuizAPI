@@ -14,6 +14,10 @@ namespace QuizAPI.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Get tests list with description
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("all")]
         public async Task<IActionResult> TryGetTests()
@@ -22,6 +26,12 @@ namespace QuizAPI.Controllers
             return await GetResponse(result);
         }
 
+        /// <summary>
+        /// Create tests result in db
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="testId"></param>
+        /// <returns>TestResultId: needs to be used when saving answer to connect answer with specific test of specific user</returns>
         [HttpPost]
         [Route("new/{userId}/{testId}")]
         public async Task<IActionResult> TryCreateTestResult(int userId, int testId)
@@ -30,6 +40,11 @@ namespace QuizAPI.Controllers
             return await GetResponse(result);
         }
 
+        /// <summary>
+        /// Calculates the result of the test with TestResultId
+        /// </summary>
+        /// <param name="testResultId"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{testResultId}/result")]
         public async Task<IActionResult> TryCalculateTestResultIdResult(int testResultId)
@@ -38,6 +53,11 @@ namespace QuizAPI.Controllers
             return await GetResponse(result);
         }
 
+        /// <summary>
+        /// Gets the result of the test with TestResultId
+        /// </summary>
+        /// <param name="testResultId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{testResultId}/result")]
         public async Task<IActionResult> TryGetTestResult(int testResultId)
