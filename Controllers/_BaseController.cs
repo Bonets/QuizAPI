@@ -10,12 +10,12 @@ namespace QuizAPI.Controllers
     public class _BaseController : ControllerBase
     {
         protected IServiceFactory _serviceFactory;
-        protected QuizContext _taskContext;
+        protected QuizContext _quizContext;
 
-        public _BaseController(IServiceFactory serviceFactory, QuizContext taskContext)
+        public _BaseController(IServiceFactory serviceFactory, QuizContext quizContext)
         {
             _serviceFactory = serviceFactory;
-            _taskContext = taskContext;
+            _quizContext = quizContext;
         }
 
         protected async Task<IActionResult> GetResponse(ServiceResult serviceResult)

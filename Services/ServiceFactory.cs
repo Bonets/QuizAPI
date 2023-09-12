@@ -1,4 +1,5 @@
-﻿using QuizAPI.Services.Interfaces;
+﻿using QuizAPI.Services.Implementations;
+using QuizAPI.Services.Interfaces;
 
 namespace QuizAPI.Services
 {
@@ -8,6 +9,10 @@ namespace QuizAPI.Services
         public ServiceFactory(QuizContext context)
         {
             _context = context;
+        }
+        public ITestService CreateTestService(QuizContext context)
+        {
+            return new TestService(_context);
         }
     }
 }
