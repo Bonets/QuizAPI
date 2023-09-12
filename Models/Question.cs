@@ -12,7 +12,7 @@ namespace QuizAPI.Models
         [Required]
         public int QuestionId { get; set; }
         [Required]
-        public string Title { get; set; }
+        public string Description { get; set; }
         [Required]
         public int TestId { get; set; }
         [ForeignKey("TestId")]

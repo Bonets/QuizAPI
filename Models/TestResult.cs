@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuizAPI.Models
@@ -14,10 +15,11 @@ namespace QuizAPI.Models
         public int UserId { get; set; }
         [Required]
         public int TestId { get; set; }
-        [Required]
-        public decimal ResultPercentage { get; set; }
-        [Required]
-        public DateTime ResultDate { get; set; }
+        public int RightAnswers { get; set; } = 0;
+        public int TotalAnswers {
+            get; set;
+        }
+        public DateTime? TestDate { get; set; } = DateTime.UtcNow;
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         [ForeignKey("TestId")]

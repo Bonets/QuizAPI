@@ -21,5 +21,13 @@ namespace QuizAPI.Controllers
             var result = await _serviceFactory.CreateTestService(_quizContext).TryGetTestList();
             return await GetResponse(result);
         }
+
+        [HttpPost]
+        [Route("new/{userId}/{testId}")]
+        public async Task<IActionResult> TryCreateTestResult(int userId, int testId)
+        {
+            var result = await _serviceFactory.CreateTestService(_quizContext).TryCreateTestResult(userId, testId);
+            return await GetResponse(result);
+        }
     }
 }

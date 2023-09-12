@@ -21,6 +21,30 @@ namespace QuizAPI.Services.Implementations
             _context = context;
         }
 
+        public async Task<ServiceResult<int>> TryCreateTestResult(int userId, int testId)
+        {
+            try
+            {
+                var result = new ServiceResult<int>();
+                var testResult = new Models.TestResult
+                {
+                    TestId = testId,
+                    UserId = userId,
+                };
+
+                _context.Entry(testResult).State = EntityState.Added;
+                await _context.SaveChangesAsync();
+
+                result.ResponseData = testResult.TestResultId;
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                return new ServiceResult<int>().ExceptionResult();
+            }
+        }
+
         public async Task<ServiceResult<List<TestDTO>>> TryGetTestList()
         {
             try
@@ -29,7 +53,7 @@ namespace QuizAPI.Services.Implementations
                 var tests = await _context.Tests.Select(x => new TestDTO
                 {
                     TestId = x.TestId,
-                    Title = x.TestName,
+                    Title = x.Description,
                 }).ToListAsync();
 
                 result.ResponseData = new List<TestDTO>();

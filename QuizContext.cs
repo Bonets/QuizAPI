@@ -49,17 +49,17 @@ namespace QuizAPI
                 new Test
                 {
                     TestId = 1,
-                    TestName = "Volleyball",
+                    Description = "Volleyball",
                 },
                 new Test
                 {
                     TestId = 2,
-                    TestName = "Formula 1",
+                    Description = "Formula 1",
                 },
                 new Test
                 {
                     TestId = 3,
-                    TestName = "Numbers",
+                    Description = "Numbers",
                 });
 
             modelBuilder.Entity<Question>()
@@ -68,73 +68,73 @@ namespace QuizAPI
                 {
                     TestId = 1,
                     QuestionId = 1,
-                    Title = "How large is a volleyball court?",
+                    Description = "How large is a volleyball court?",
                 },
                 new Question
                 {
                     TestId = 1,
                     QuestionId = 2,
-                    Title = "Can you touch the ball with your feet?",
+                    Description = "Can you touch the ball with your feet?",
                 },
                 new Question
                 {
                     TestId = 1,
                     QuestionId = 3,
-                    Title = "How many points does a set have?",
+                    Description = "How many points does a set have?",
                 },
                 new Question
                 {
                     TestId = 1,
                     QuestionId = 4,
-                    Title = "What is the winning formula in a standard match??",
+                    Description = "What is the winning formula in a standard match??",
                 },
                 new Question
                 {
                     QuestionId = 5,
                     TestId = 2,
-                    Title = "Which city hosts the Monaco Grand Prix?",
+                    Description = "Which city hosts the Monaco Grand Prix?",
                 },
                 new Question
                 {
                     QuestionId = 6,
                     TestId = 2,
-                    Title = "Which F1 constructor is based in Milton Keynes, England?",
+                    Description = "Which F1 constructor is based in Milton Keynes, England?",
                 },
                 new Question
                 {
                     QuestionId = 7,
                     TestId = 2,
-                    Title = "What is the name of the F1 car's protective structure that is designed to protect the driver's head in the event of an accident?",
+                    Description = "What is the name of the F1 car's protective structure that is designed to protect the driver's head in the event of an accident?",
                 },
                 new Question
                 {
                     QuestionId = 8,
                     TestId = 2,
-                    Title = "“The Iceman” is the nickname given to which Finnish Formula 1 World Champion??",
+                    Description = "“The Iceman” is the nickname given to which Finnish Formula 1 World Champion??",
                 },
                 new Question
                 {
                     QuestionId = 9,
                     TestId = 3,
-                    Title = "How many minutes are in a full week?",
+                    Description = "How many minutes are in a full week?",
                 },
                 new Question
                 {
                     QuestionId = 10,
                     TestId = 3,
-                    Title = "How many elements are in the periodic table?",
+                    Description = "How many elements are in the periodic table?",
                 },
                 new Question
                 {
                     QuestionId = 11,
                     TestId = 3,
-                    Title = "How many bones do we have in an ear?",
+                    Description = "How many bones do we have in an ear?",
                 },
                 new Question
                 {
                     QuestionId = 12,
                     TestId = 3,
-                    Title = "How many faces does a Dodecahedron have?",
+                    Description = "How many faces does a Dodecahedron have?",
                 });
 
             modelBuilder.Entity<Answer>()

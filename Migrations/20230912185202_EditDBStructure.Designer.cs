@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizAPI;
 
@@ -10,9 +11,11 @@ using QuizAPI;
 namespace QuizAPI.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    partial class QuizContextModelSnapshot : ModelSnapshot
+    [Migration("20230912185202_EditDBStructure")]
+    partial class EditDBStructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,12 +277,12 @@ namespace QuizAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<int>("TestId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("QuestionId");
 
@@ -291,74 +294,74 @@ namespace QuizAPI.Migrations
                         new
                         {
                             QuestionId = 1,
-                            Description = "How large is a volleyball court?",
-                            TestId = 1
+                            TestId = 1,
+                            Title = "How large is a volleyball court?"
                         },
                         new
                         {
                             QuestionId = 2,
-                            Description = "Can you touch the ball with your feet?",
-                            TestId = 1
+                            TestId = 1,
+                            Title = "Can you touch the ball with your feet?"
                         },
                         new
                         {
                             QuestionId = 3,
-                            Description = "How many points does a set have?",
-                            TestId = 1
+                            TestId = 1,
+                            Title = "How many points does a set have?"
                         },
                         new
                         {
                             QuestionId = 4,
-                            Description = "What is the winning formula in a standard match??",
-                            TestId = 1
+                            TestId = 1,
+                            Title = "What is the winning formula in a standard match??"
                         },
                         new
                         {
                             QuestionId = 5,
-                            Description = "Which city hosts the Monaco Grand Prix?",
-                            TestId = 2
+                            TestId = 2,
+                            Title = "Which city hosts the Monaco Grand Prix?"
                         },
                         new
                         {
                             QuestionId = 6,
-                            Description = "Which F1 constructor is based in Milton Keynes, England?",
-                            TestId = 2
+                            TestId = 2,
+                            Title = "Which F1 constructor is based in Milton Keynes, England?"
                         },
                         new
                         {
                             QuestionId = 7,
-                            Description = "What is the name of the F1 car's protective structure that is designed to protect the driver's head in the event of an accident?",
-                            TestId = 2
+                            TestId = 2,
+                            Title = "What is the name of the F1 car's protective structure that is designed to protect the driver's head in the event of an accident?"
                         },
                         new
                         {
                             QuestionId = 8,
-                            Description = "“The Iceman” is the nickname given to which Finnish Formula 1 World Champion??",
-                            TestId = 2
+                            TestId = 2,
+                            Title = "“The Iceman” is the nickname given to which Finnish Formula 1 World Champion??"
                         },
                         new
                         {
                             QuestionId = 9,
-                            Description = "How many minutes are in a full week?",
-                            TestId = 3
+                            TestId = 3,
+                            Title = "How many minutes are in a full week?"
                         },
                         new
                         {
                             QuestionId = 10,
-                            Description = "How many elements are in the periodic table?",
-                            TestId = 3
+                            TestId = 3,
+                            Title = "How many elements are in the periodic table?"
                         },
                         new
                         {
                             QuestionId = 11,
-                            Description = "How many bones do we have in an ear?",
-                            TestId = 3
+                            TestId = 3,
+                            Title = "How many bones do we have in an ear?"
                         },
                         new
                         {
                             QuestionId = 12,
-                            Description = "How many faces does a Dodecahedron have?",
-                            TestId = 3
+                            TestId = 3,
+                            Title = "How many faces does a Dodecahedron have?"
                         });
                 });
 
@@ -368,7 +371,7 @@ namespace QuizAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("TestName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -380,17 +383,17 @@ namespace QuizAPI.Migrations
                         new
                         {
                             TestId = 1,
-                            Description = "Volleyball"
+                            TestName = "Volleyball"
                         },
                         new
                         {
                             TestId = 2,
-                            Description = "Formula 1"
+                            TestName = "Formula 1"
                         },
                         new
                         {
                             TestId = 3,
-                            Description = "Numbers"
+                            TestName = "Numbers"
                         });
                 });
 
@@ -400,16 +403,13 @@ namespace QuizAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("RightAnswers")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("TestDate")
+                    b.Property<DateTime>("ResultDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("TestId")
-                        .HasColumnType("int");
+                    b.Property<decimal>("ResultPercentage")
+                        .HasColumnType("decimal(65,30)");
 
-                    b.Property<int>("TotalAnswers")
+                    b.Property<int>("TestId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")

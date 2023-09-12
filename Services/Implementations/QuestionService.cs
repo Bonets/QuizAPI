@@ -31,7 +31,7 @@ namespace QuizAPI.Services.Implementations
                     .Select(x => new QuestionDTO
                     {
                         QuestionId = x.QuestionId,
-                        QuestionDescription = x.Title,
+                        QuestionDescription = x.Description,
                         Answers = x.Answers.Select(y => new AnswerDTO
                         {
                             AnswerId = y.AnswerId,

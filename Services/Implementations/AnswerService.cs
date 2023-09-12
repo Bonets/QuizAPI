@@ -25,34 +25,26 @@ namespace QuizAPI.Services.Implementations
         {
             try
             {
-                try
+                var result = new ServiceResult<int>();
+                var UserTestQuestionAnswer = new Models.UserTestQuestionAnswer
                 {
-                    var result = new ServiceResult<int>();
-                    var UserTestQuestionAnswer = new Models.UserTestQuestionAnswer
-                    {
-                        AnswerId = model.AnswerId,
-                        QuestionId = model.QuestionId,
-                        TestId = model.TestId,
-                        UserId = model.UserId,
-                        AnswerDate = DateTime.UtcNow
-                    };
-                    _context.Entry(UserTestQuestionAnswer).State = EntityState.Added;
-                    await _context.SaveChangesAsync();
+                    AnswerId = model.AnswerId,
+                    QuestionId = model.QuestionId,
+                    TestResultId = model.TestResultId,
+                    AnswerDate = DateTime.UtcNow,
+                };
+                _context.Entry(UserTestQuestionAnswer).State = EntityState.Added;
+                await _context.SaveChangesAsync();
 
-                    result.ResponseData = UserTestQuestionAnswer.UserTestQuestionAnswerId;
-                    return result;
-                }
-                catch (Exception e)
-                {
-                    return new ServiceResult<int>().ExceptionResult();
-                }
+                result.ResponseData = UserTestQuestionAnswer.UserTestQuestionAnswerId;
+                return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                return new ServiceResult<int>().ExceptionResult();
             }
+
         }
-        
+
     }
 }

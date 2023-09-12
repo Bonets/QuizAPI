@@ -10,7 +10,7 @@ namespace QuizAPI.Models
         [Key]
         public int TestId { get; set; }
         [Required]
-        public string TestName { get; set; }
+        public string Description { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
     }
 }
