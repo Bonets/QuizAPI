@@ -7,5 +7,8 @@ namespace QuizAPI.Services.Interfaces
     {
         public Task<ServiceResult<List<TestDTO>>> TryGetTestList();
         public Task<ServiceResult<int>> TryCreateTestResult(int userId, int testId);
+        public Task<ServiceResult<int>> TryCalculateTestResult(int testResultId);
+
+        public Task<ServiceResult<TestResultDTO>> TryGetTestResult(int testResultId);
     }
 }

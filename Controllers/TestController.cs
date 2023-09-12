@@ -29,5 +29,21 @@ namespace QuizAPI.Controllers
             var result = await _serviceFactory.CreateTestService(_quizContext).TryCreateTestResult(userId, testId);
             return await GetResponse(result);
         }
+
+        [HttpPost]
+        [Route("{testResultId}/result")]
+        public async Task<IActionResult> TryCalculateTestResultIdResult(int testResultId)
+        {
+            var result = await _serviceFactory.CreateTestService(_quizContext).TryCalculateTestResult(testResultId);
+            return await GetResponse(result);
+        }
+
+        [HttpGet]
+        [Route("{testResultId}/result")]
+        public async Task<IActionResult> TryGetTestResult(int testResultId)
+        {
+            var result = await _serviceFactory.CreateTestService(_quizContext).TryGetTestResult(testResultId);
+            return await GetResponse(result);
+        }
     }
 }
