@@ -10,7 +10,6 @@ using QuizAPI.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-
 namespace QuizAPI.Services.Implementations
 {
     public class QuestionService : IQuestionService
@@ -39,8 +38,15 @@ namespace QuizAPI.Services.Implementations
                         }).ToList()
                     }).ToListAsync();
 
-                result.ResponseData = new List<QuestionDTO>();
-                result.ResponseData = tests.OrderBy(x => x.QuestionId).ToList();
+                if (tests.Count() == 0)
+                {
+                    return result.NotFoundResult("Test not found");
+                }
+                else
+                {
+                    result.ResponseData = new List<QuestionDTO>();
+                    result.ResponseData = tests.OrderBy(x => x.QuestionId).ToList();
+                }
 
                 return result;
             }

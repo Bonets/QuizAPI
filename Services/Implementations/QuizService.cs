@@ -13,10 +13,10 @@ using System.Text;
 
 namespace QuizAPI.Services.Implementations
 {
-    public class TestService : ITestService
+    public class QuizService : IQuizService
     {
         protected QuizContext _context;
-        public TestService(QuizContext context)
+        public QuizService(QuizContext context)
         {
             _context = context;
         }
@@ -35,7 +35,7 @@ namespace QuizAPI.Services.Implementations
                     .Where(x => x.TestResultId == testResultId)
                     .ToListAsync();
 
-                if (answers == null)
+                if (answers.Count() == 0)
                 {
                     return result.NotFoundResult("Test non trovato");
                 }
@@ -130,8 +130,6 @@ namespace QuizAPI.Services.Implementations
                 {
                     result.ResponseData = testResult;
                 }
-
-
                 return result;
             }
             catch (Exception e)
