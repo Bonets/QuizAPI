@@ -7,4 +7,4 @@ Mandatory steps:
         QuizAPI
         QuizAPITest
 3. Change credential in appsetting.json of the 2 projects (QuizAPI and QuizAPITest)
-4. Execute from VS 
+4. Execute QuizAPI from VS 
